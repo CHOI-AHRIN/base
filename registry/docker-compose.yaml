@@ -1,0 +1,11 @@
+version: '3'
+services:
+  registry:
+    image: registry:2
+    container_name: registry
+    ports:
+      - "8443:5000"
+    volumes:
+      - /nfs_shared/registry:/var/lib/registry
+    restart: always
+
