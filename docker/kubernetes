@@ -1,0 +1,28 @@
+# 폴더 삭제
+rm -r 폴더이름
+rm -rf 폴더이름
+
+# 도커 컨테이너
+docker ps # 확인
+
+# 컨테이너
+docker exec -it 컨테이너이름 bash
+kubectl exec -it 컨테이너이름 -- bash
+
+# 파드
+kubectl get pod -o wide # 확인
+kubectl delete pod <Pod 이름> # 삭제
+
+
+# 디플로이먼트
+# 디플로이먼트는 새로 업데이트 되면 기존 파드를 자동으로 관리함 / 같은 이름의 디플로이먼트가 있어도 상관없음
+kubectl get deployment # 디플로이먼트 확인
+kubectl delete deployment 서비스 이름 # 디플로이먼트 삭제
+kubectl apply -f deployment.yaml # 디플로이먼트 생성
+
+# 서비스
+# 서비스의 External_ip와 포트번호로 웹에 접속되는지 확인
+kubectl get services # 서비스 확인
+kubectl delete service 서비스 이름 # 서비스 삭제
+kubectl apply -f service.yaml # 서비스 생성
+
