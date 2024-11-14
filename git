@@ -1,0 +1,17 @@
+# 1. Git 초기화
+git init
+
+# 2. 모든 파일 추가
+git add .
+
+# 3. 첫 커밋
+git commit -m "Initial commit"
+
+# 4. 원격 저장소 연결 (GitHub, GitLab 등에서 URL 복사)
+git remote add origin https://github.com/username/repository.git
+
+# 5. 브랜치 이름 설정 (main으로 변경)
+git branch -M main
+
+# 6. 원격 저장소로 업로드
+git push -u origin main
