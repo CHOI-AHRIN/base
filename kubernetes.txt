@@ -88,15 +88,29 @@ vi service.yaml
 
 ----------------------------------------------------------------------------------------------------------------------
 # 젠킨스
-# ngrok 설정
+# ngrok 초기 설정
+   ## ngrok 사용이유
+      - 사설 IP를 외부에서 접근 가능하도록 하기 위해 / 공인 IP가 없는 환경에서의 대안 / 테스트 환경에서 빠른 설정 / 보안 테스트 및 데모 환경 
+      - 
 # https://ngrok.com/ 접속 --> 로그인 --> Your Authtoken copy
 sudo yum install wget -y
 wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
 sudo mv ngrok /usr/local/bin/
 ngrok version
-ngrok config add-authtoken 2nrjyJ8pYgxxQcRZw8hqLG0y59d_34boh3e1Ayh8ix2VtrDKC
-docker run -it -e NGROK_AUTHTOKEN=2nrjyJ8pYgxxQcRZw8hqLG0y59d_34boh3e1Ayh8ix2VtrDKC ngrok/ngrok http 192.168.1.11:80
 
+# 토큰 추가
+ngrok config add-authtoken 내 토큰 입력
+
+# 실행
+docker run -it -e NGROK_AUTHTOKEN=3xyJ2kZpRQyWx1KnU9xyz12345_exampleAuthtoken ngrok/ngrok http 192.168.1.11:80
+docker run -it -e NGROK_AUTHTOKEN=내토큰 ngrok/ngrok http 192.168.1.11:80
+
+# 실행 시 Forwording 주소로 깃 웹훅 생성
+
+Payload URL * --> https://Forwording주소/github-webhook/
+Content type * --> application/json
+
+-------------------------------------------------------------------------------------------------------------------------
 
 # 내도메인한국
 # https://xn--220b31d95hq8o.xn--3e0b707e/
