@@ -1,15 +1,54 @@
 # 운영환경 배포 + 젠킨스
+# DevOps 환경에서의 배포
 
 # 자바설치
 yum install java-1.8.0-openjdk-devel -y
 
+
 # 오라클
 
-# 스프링
+----------------------------------------------------------------------------------------------------------------------
+# BackEnd
+# 빌드순서 : 이미지 생성 --> 이미지 푸시 --> deployment 생성 --> 서비스 생성
 
-# 리액트
+# build 파일에 권한 부여
+chmod 744 build-in-host.sh
 
+# deployment.yaml에 첨부파일을 위한 volume 확인
+# img 이름 체크
+# env 체크
+vi deployment.yaml
 
+# service.yaml에 로드밸런서 확인
+vi service.yaml
+
+# build 파일 실행
+./build-in-host.sh
+
+----------------------------------------------------------------------------------------------------------------------
+# FrontEnd
+# 빌드순서 : 이미지 생성(nginx.conf 이용) --> 이미지 푸시 --> deployment 생성 --> 서비스 생성
+
+# build 파일에 권한 주기
+chmod 744 build-in-host.sh
+
+# nginx.conf 파일 확인
+# proxy_pass를 BE service EXTERNAL-IP로 설정
+# 개발환경에서는 ifconfig eth0 --> host ip 입력
+vi nginx.conf
+
+# deployment.yaml에 첨부파일을 위한 volume 확인
+# img 이름 체크
+# env 체크
+vi deployment.yaml
+
+# service.yaml에 로드밸런서 확인
+vi service.yaml
+
+# build 파일 실행
+./build-in-host.sh
+
+----------------------------------------------------------------------------------------------------------------------
 # 젠킨스
 # ngrok 설정
 # https://ngrok.com/ 접속 --> 로그인 --> Your Authtoken copy
@@ -18,7 +57,6 @@ wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
 sudo mv ngrok /usr/local/bin/
 ngrok version
 ngrok config add-authtoken 2nrjyJ8pYgxxQcRZw8hqLG0y59d_34boh3e1Ayh8ix2VtrDKC
-docker run -it -e NGROK_AUTHTOKEN=3xyJ2kZpRQyWx1KnU9xyz12345_exampleAuthtoken ngrok/ngrok http 192.168.1.11:80
 docker run -it -e NGROK_AUTHTOKEN=2nrjyJ8pYgxxQcRZw8hqLG0y59d_34boh3e1Ayh8ix2VtrDKC ngrok/ngrok http 192.168.1.11:80
 
 
