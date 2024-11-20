@@ -9,6 +9,7 @@ yum install java-1.8.0-openjdk-devel -y
 
 # 리액트
 
+-------------------------------------------------------------------------------------------------------------------------
 
 # 젠킨스
 # ngrok 설정
@@ -17,10 +18,17 @@ sudo yum install wget -y
 wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
 sudo mv ngrok /usr/local/bin/
 ngrok version
+
+# 토큰 추가
 ngrok config add-authtoken 2nrjyJ8pYgxxQcRZw8hqLG0y59d_34boh3e1Ayh8ix2VtrDKC
+
+# 실행
 docker run -it -e NGROK_AUTHTOKEN=3xyJ2kZpRQyWx1KnU9xyz12345_exampleAuthtoken ngrok/ngrok http 192.168.1.11:80
 docker run -it -e NGROK_AUTHTOKEN=2nrjyJ8pYgxxQcRZw8hqLG0y59d_34boh3e1Ayh8ix2VtrDKC ngrok/ngrok http 192.168.1.11:80
 
+# 실행 시 Forwording 주소로 깃 웹훅 생성
+
+-------------------------------------------------------------------------------------------------------------------------
 
 # 내도메인한국
 # https://xn--220b31d95hq8o.xn--3e0b707e/
