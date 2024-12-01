@@ -1,0 +1,4 @@
+# maven 의존성 추가
+sudo apt update
+sudo apt install maven
+mvn clean install
