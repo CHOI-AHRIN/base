@@ -100,7 +100,6 @@ sudo yum install wget -y
 wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
 sudo mv ngrok /usr/local/bin/
 ngrok version
-<<<<<<< HEAD
 
 # 토큰 추가
 ngrok config add-authtoken 내 토큰 입력
@@ -109,8 +108,7 @@ ngrok config add-authtoken 내 토큰 입력
 docker run -it -e NGROK_AUTHTOKEN=3xyJ2kZpRQyWx1KnU9xyz12345_exampleAuthtoken ngrok/ngrok http 192.168.1.11:80
 docker run -it -e NGROK_AUTHTOKEN=내토큰 ngrok/ngrok http 192.168.1.11:80
 
-=======
-
+<<<<<<<<<<<<<<<<
 # 토큰 추가
 ngrok config add-authtoken 2nrjyJ8pYgxxQcRZw8hqLG0y59d_34boh3e1Ayh8ix2VtrDKC
 
@@ -118,7 +116,7 @@ ngrok config add-authtoken 2nrjyJ8pYgxxQcRZw8hqLG0y59d_34boh3e1Ayh8ix2VtrDKC
 docker run -it -e NGROK_AUTHTOKEN=3xyJ2kZpRQyWx1KnU9xyz12345_exampleAuthtoken ngrok/ngrok http 192.168.1.11:80
 docker run -it -e NGROK_AUTHTOKEN=2nrjyJ8pYgxxQcRZw8hqLG0y59d_34boh3e1Ayh8ix2VtrDKC ngrok/ngrok http 192.168.1.11:80
 
->>>>>>> ahrin
+
 # 실행 시 Forwording 주소로 깃 웹훅 생성
 
 Payload URL * --> https://Forwording주소/github-webhook/
