@@ -1,2 +1,3 @@
-# oracle
-# registry
+# 📖 Java를 공부중입니다! 
+# 🗂️ Spring Boot + React를 이용한 프로젝트를 업그레이드 중입니다!
+# ✏️ 알아가는 내용들을 차근히 필기 중입니다!
